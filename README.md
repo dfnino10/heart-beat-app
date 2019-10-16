@@ -1,4 +1,4 @@
-# heart_beat
+# Heart Beat
 
 A new Flutter app to keep track of heart beat rate changes
 
