@@ -1,17 +1,33 @@
 # heart_beat
 
-A new Flutter application to keep track of heart beat rate changes
+A new Flutter app to keep track of heart beat rate changes
 
-## Getting Started
+## Project goal
+Develop a Flutter app that lets its users keep track of heart beat rate changes
 
-This project is a starting point for a Flutter application.
+## How to run 
 
-A few resources to get you started if this is your first Flutter project:
+### Requisites:
+- Android SDK
+- Flutter
+- Have an Android device connected to the running machine
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+### Run locally
+Once the requisites are installed, open a console, go to project root folder and run ```flutter pub get```. This will install all dependencies in the  ```pubspec.yaml``` file. Then in the project root folder run  ```flutter run```.
+
+## Demo 
+![https://github.com/dfnino10/heart-beat-app/raw/master/thumbNail.gif](https://github.com/dfnino10/heart-beat-app/raw/master/thumbNail.gif)
+
+## Technologies
+- Flutter
+
+
+## Author
+ David Felipe Niño Romero
+    [Github](https://github.com/dfnino10)
+    [Personal](https://dfnino10.github.io/davidnino/)
+    
 
 For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
-# heart-beat-app
