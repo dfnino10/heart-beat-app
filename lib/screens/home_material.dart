@@ -21,8 +21,8 @@ class _HomeMaterialState extends State<HomeMaterial> {
           child: Builder(
               builder: (context) => Form(
                   key: _formKey,
-                  child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                  child: ListView(
+                      padding: const EdgeInsets.all(8),
                       children: [
                         TextFormField(
                           decoration: InputDecoration(labelText: 'Nombres'),
@@ -30,6 +30,13 @@ class _HomeMaterialState extends State<HomeMaterial> {
                             if (value.isEmpty) {
                               return 'Por favor ingrese sus nombres';
                             }
+                            if (value.length >30) {
+                              return 'Nombres no pueden contener más de 30 caracteres';
+                            }
+                            if(RegExp(r'[!@#<>?",:_`~;[\]\\|=+)(*&^%0-9-]').hasMatch(value)){
+                              return 'Nombres no pueden contener números o caracteres especiales';
+                            }
+                            return null;
                           },
                           onSaved: (val) =>
                               setState(() => _user.firstName = val),
@@ -40,6 +47,47 @@ class _HomeMaterialState extends State<HomeMaterial> {
                               if (value.isEmpty) {
                                 return 'Por favor ingrese sus apellidos';
                               }
+                              if (value.length >30) {
+                                return 'Apellidos no pueden contener más de 30 caracteres';
+                              }
+                              if(RegExp(r'[!@#<>?",:_`~;[\]\\|=+)(*&^%0-9-]').hasMatch(value)){
+                                return 'Apellidos no pueden contener números o caracteres especiales';
+                              }
+                              return null;
+                            },
+                            onSaved: (val) =>
+                                setState(() => _user.lastName = val)),
+                        TextFormField(
+                            decoration: InputDecoration(labelText: 'Cédula'),
+                            keyboardType: TextInputType.number,
+                            validator: (value) {
+                              if (value.isEmpty) {
+                                return 'Por favor ingrese su cédula';
+                              }
+                              if (value.length >15) {
+                                return 'Cédula no puede contener más de 15 dígitos';
+                              }
+                              if(RegExp(r'[!@#<>?",:_`~;[\]\\|=+)(*&^%\s-]').hasMatch(value)){
+                                return 'Cédula sólo puede contener números';
+                              }
+                              return null;
+                            },
+                            onSaved: (val) =>
+                                setState(() => _user.lastName = val)),
+                        TextFormField(
+                            decoration: InputDecoration(labelText: 'Edad'),
+                            keyboardType: TextInputType.number,
+                            validator: (value) {
+                              if (value.isEmpty) {
+                                return 'Por favor ingrese su edad';
+                              }
+                              if (value.length >3) {
+                                return 'Edad no puede contener más de 3 dígitos';
+                              }
+                              if(RegExp(r'[!@#<>?",:_`~;[\]\\|=+)(*&^%\s-]').hasMatch(value)){
+                                return 'Edad sólo puede contener números';
+                              }
+                              return null;
                             },
                             onSaved: (val) =>
                                 setState(() => _user.lastName = val)),
@@ -61,7 +109,7 @@ class _HomeMaterialState extends State<HomeMaterial> {
                               setState(() =>
                                   _user.health_data[User.Hace_ejercicio] = val);
                             }),
-                        ImageCapture()
+                        ImageCapture(),
                       ])))),
       bottomNavigationBar: BottomAppBar(
         child: Row(
