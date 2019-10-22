@@ -14,6 +14,9 @@ class ImageCapture extends StatefulWidget {
 class _ImageCaptureState extends State<ImageCapture> {
   File _imageFile;
 
+  File getImageFile(){
+    return _imageFile;
+  }
   Future<void> _pickImage(ImageSource source) async {
     File selected = await ImagePicker.pickImage(source: source);
 
@@ -48,13 +51,14 @@ class _ImageCaptureState extends State<ImageCapture> {
         ),
         Align(
             alignment: Alignment.topCenter,
-            child: ListView(
-              scrollDirection: Axis.vertical,
-              shrinkWrap: true,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              //shrinkWrap: true,
               children: <Widget>[
                 if (_imageFile != null) ...[
                   Image.file(_imageFile, height: 150),
-                  Row(
+                  ButtonBar(
+                    alignment: MainAxisAlignment.center,
                       children: <Widget>[
                       FlatButton(
                         child: Icon(Icons.crop),
