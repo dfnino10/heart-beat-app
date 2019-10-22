@@ -33,21 +33,21 @@ class _HomeMaterialState extends State<HomeMaterial> {
   }
 
   setSelectedSex(int val) {
-    _user.health_data[User.Sexo]=val==1? false : true;
+    _user.health_data[User.Sexo] = val == 1 ? false : true;
     setState(() {
       selectedSex = val;
     });
   }
 
   setSelectedDiabetes(int val) {
-    _user.health_data[User.Diabetes_Mellitus]=val==1? false : true;
+    _user.health_data[User.Diabetes_Mellitus] = val == 1 ? false : true;
     setState(() {
       selectedDiabetes = val;
     });
   }
 
   setSelectedFuma(int val) {
-    _user.health_data[User.Fuma]=val==1? false : true;
+    _user.health_data[User.Fuma] = val == 1 ? false : true;
     setState(() {
       selectedFuma = val;
     });
@@ -63,10 +63,15 @@ class _HomeMaterialState extends State<HomeMaterial> {
               builder: (context) => Form(
                   key: _formKey,
                   child: ListView(padding: const EdgeInsets.all(8), children: [
-                    Container(
-                      padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
-                      child: Text('Información general'),
-                    ),
+                    Row(
+                      children:[
+                        Expanded(
+                          child: Text('Información general'),
+                        ),
+                        Expanded(
+                          child: Image.asset('assets/images/heartLogopng.png'),
+                        ),
+                      ]),
                     TextFormField(
                       decoration: InputDecoration(labelText: 'Nombres'),
                       controller: _myController1,
@@ -119,7 +124,8 @@ class _HomeMaterialState extends State<HomeMaterial> {
                           }
                           return null;
                         },
-                        onSaved: (val) => setState(() => _user.cedula = int.parse(val))),
+                        onSaved: (val) =>
+                            setState(() => _user.cedula = int.parse(val))),
                     TextFormField(
                         decoration: InputDecoration(labelText: 'Edad'),
                         keyboardType: TextInputType.number,
@@ -137,7 +143,8 @@ class _HomeMaterialState extends State<HomeMaterial> {
                           }
                           return null;
                         },
-                        onSaved: (val) => setState(() => _user.edad = int.parse(val))),
+                        onSaved: (val) =>
+                            setState(() => _user.edad = int.parse(val))),
                     Row(
                       children: <Widget>[
                         Expanded(
@@ -190,7 +197,8 @@ class _HomeMaterialState extends State<HomeMaterial> {
                           }
                           return null;
                         },
-                        onSaved: (val) => setState(() => _user.peso = int.parse(val))),
+                        onSaved: (val) =>
+                            setState(() => _user.peso = int.parse(val))),
                     TextFormField(
                         decoration: InputDecoration(labelText: 'Estatura (cm)'),
                         keyboardType: TextInputType.number,
@@ -208,7 +216,8 @@ class _HomeMaterialState extends State<HomeMaterial> {
                           }
                           return null;
                         },
-                        onSaved: (val) => setState(() => _user.estatura = int.parse(val))),
+                        onSaved: (val) =>
+                            setState(() => _user.estatura = int.parse(val))),
                     TextFormField(
                         decoration: InputDecoration(
                             labelText: 'Perímetro abdominal (cm)'),
@@ -227,7 +236,8 @@ class _HomeMaterialState extends State<HomeMaterial> {
                           }
                           return null;
                         },
-                        onSaved: (val) => setState(() => _user.pAbdominal = int.parse(val))),
+                        onSaved: (val) =>
+                            setState(() => _user.pAbdominal = int.parse(val))),
                     Row(
                       children: <Widget>[
                         Expanded(
@@ -277,7 +287,8 @@ class _HomeMaterialState extends State<HomeMaterial> {
                           }
                           return null;
                         },
-                        onSaved: (val) => setState(() => _user.colesterol = int.parse(val))),
+                        onSaved: (val) =>
+                            setState(() => _user.colesterol = int.parse(val))),
                     Row(
                       children: <Widget>[
                         Expanded(
@@ -327,7 +338,8 @@ class _HomeMaterialState extends State<HomeMaterial> {
                           }
                           return null;
                         },
-                        onSaved: (val) => setState(() => _user.transferrina = int.parse(val))),
+                        onSaved: (val) => setState(
+                            () => _user.transferrina = int.parse(val))),
                     ImageCapture(),
                     //ImageCapture(),
                     //ImageCapture(),
@@ -345,7 +357,7 @@ class _HomeMaterialState extends State<HomeMaterial> {
                         _showDialog(context);
                       }
                     },
-                    child: Text('Guardar')))
+                    child: Text('Enviar')))
           ],
         ),
       ),
